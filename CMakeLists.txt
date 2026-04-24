@@ -73,7 +73,7 @@ if(${PROJECT_NAME}_BUILD_EXECUTABLE)
   endif()
 
   if(${PROJECT_NAME}_ENABLE_UNIT_TESTING)
-    add_library(${PROJECT_NAME}_LIB ${headers} ${sources})
+    add_executable(${PROJECT_NAME}_LIB ${headers} ${sources})
 
     if(${PROJECT_NAME}_VERBOSE_OUTPUT)
       verbose_message("Found the following headers:")
@@ -83,7 +83,7 @@ if(${PROJECT_NAME}_BUILD_EXECUTABLE)
     endif()
   endif()
 elseif(${PROJECT_NAME}_BUILD_HEADERS_ONLY)
-  add_library(${PROJECT_NAME} INTERFACE)
+  add_executable(${PROJECT_NAME} INTERFACE)
 
   if(${PROJECT_NAME}_VERBOSE_OUTPUT)
     verbose_message("Found the following headers:")
@@ -92,7 +92,7 @@ elseif(${PROJECT_NAME}_BUILD_HEADERS_ONLY)
     endforeach()
   endif()
 else()
-  add_library(
+  add_executable(
     ${PROJECT_NAME}
     ${headers}
     ${sources}
@@ -232,7 +232,7 @@ message(STATUS "Finished setting up include directories.")
 if(${PROJECT_NAME}_BUILD_EXECUTABLE)
   add_executable(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 else()
-  add_library(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
+  add_executable(${PROJECT_NAME}::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 endif()
 
 verbose_message("Project is now aliased as ${PROJECT_NAME}::${PROJECT_NAME}.\n")
