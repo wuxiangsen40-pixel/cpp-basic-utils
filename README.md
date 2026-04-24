@@ -27,6 +27,3 @@ mkdir build
 cd build
 cmake ..
 cmake --build .
-
-👨‍💻 About
-Developed by Xiangsen Wu as a demonstration of modern C++ development workflows, targeting Working Student positions in Software Engineering and Robotics.
