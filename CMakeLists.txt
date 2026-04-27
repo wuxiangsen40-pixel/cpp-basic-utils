@@ -357,3 +357,29 @@ message(STATUS "Finished building requirements for installing the package.\n")
 # Unit testing setup
 #
 
+# ==========================================
+# Xiangsen's Hardcore Testing Module
+# ==========================================
+
+# 1. 现场全自动下载 GoogleTest 框架 (现代 C++ 绝技)
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG        release-1.12.1
+)
+FetchContent_MakeAvailable(googletest)
+
+# 2. 开启测试权限
+enable_testing()
+
+# 3. 强行征用我们的代码，造一辆名为 bmi_test 的测试战车
+add_executable(bmi_test src/main_test.cpp src/bmi.cpp)
+
+# 4. 把刚刚下载好的 GoogleTest 引擎装进战车
+target_link_libraries(bmi_test gtest_main)
+
+# 5. 向质检员正式登记这辆战车
+include(GoogleTest)
+gtest_discover_tests(bmi_test)
+
