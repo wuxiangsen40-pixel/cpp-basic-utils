@@ -1,11 +1,9 @@
 set(sources
     src/main.cpp
+    src/bmi.cpp
 )
 
 set(exe_sources
-		src/main.cpp
-		src/bmi.cpp
-		${sources}
 )
 
 set(headers
@@ -13,5 +11,4 @@ set(headers
 )
 
 set(test_sources
-  
 )
