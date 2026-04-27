@@ -11,4 +11,5 @@ set(headers
 )
 
 set(test_sources
+    src/main_test.cpp
 )
